@@ -3,13 +3,16 @@ import { getDefaultParam } from "./Caldro.js";
 import { Shader } from "./Shader.js";
 export class Scene extends Node {
     canvas;
-    renderer;
+    #renderer;
     #shaders = {};
     constructor(parent) {
         super(parent);
         this.canvas = document.createElement("canvas");
         this.canvas.style.background = "#100c0c";
-        this.renderer = this.canvas.getContext(getDefaultParam("renderer"));
+        this.#renderer = this.canvas.getContext(getDefaultParam("renderer"));
+    }
+    get renderer() {
+        return this.#renderer;
     }
     set w(v) {
         this.canvas.width = v;

@@ -16,7 +16,11 @@ type t_renderer = "webgl" | "webgl2"
 
 type t_orientation = "landscape" | "portrait"
 
-type t_physics = "default" | "arcade" | "box2d" | "matter";
+type t_physics = "default" | "arcade" | "box2d" | "matter"
+
+type t_vec4 = [number, number, number, number]
+
+type t_mat4 = [ ...t_vec4, ...t_vec4, ...t_vec4, ...t_vec4 ]
 
 interface i_initParam {
     renderer: t_renderer,

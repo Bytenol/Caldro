@@ -1,20 +1,24 @@
 import {Node} from "./Node.js";
 import {getDefaultParam} from "./Caldro.js";
-import {i_scene} from "../types";
+import {i_scene, t_mat4} from "../types";
 import {Shader} from "./Shader.js";
+import * as mat4 from "../math/Mat4.js";
 
 export abstract class Scene extends Node implements i_scene
 {
     canvas: HTMLCanvasElement;
-    private renderer: WebGLRenderingContext;
-
+    #renderer: WebGLRenderingContext;
     #shaders: any = { };
 
     constructor(parent: Node) {
         super(parent);
         this.canvas = document.createElement("canvas") as HTMLCanvasElement;
         this.canvas.style.background = "#100c0c";
-        this.renderer = this.canvas.getContext(getDefaultParam("renderer")) as unknown as WebGLRenderingContext;
+        this.#renderer = this.canvas.getContext(getDefaultParam("renderer")) as unknown as WebGLRenderingContext;
+    }
+
+    get renderer() {
+        return this.#renderer;
     }
 
     set w(v: number) {

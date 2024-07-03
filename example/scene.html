@@ -18,7 +18,7 @@ Caldro encourages the Object Oriented Programming Paradigm so i guess that's coo
         import * as Caldro from "../build/src/core/Caldro.js";
         import {Scene} from "../build/src/core/Scene.js";
 
-        class BasicWindow extends Scene {
+        class BasicScene extends Scene {
             constructor() {
                 super(null);
                 this.w = 640
@@ -32,7 +32,7 @@ Caldro encourages the Object Oriented Programming Paradigm so i guess that's coo
             // height: innerHeight,
             // renderer: "webgl2",
             parent: document.body,
-            scene: new BasicWindow(),
+            scene: new BasicScene(),
             physics: null,
             orientation: "portrait"
         };
